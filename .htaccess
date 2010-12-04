@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteRule .*\.svn/.* /404 [R=301,QSA,L]
+
+RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301,QSA,L]
+
+RewriteRule !^(media/(.+)|favicon.ico|robots.txt|sitemap.xml)$ index.php
+
+ErrorDocument 404 /

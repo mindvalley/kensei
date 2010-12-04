@@ -1,0 +1,114 @@
+========================================================================
+=                              README                                  =
+========================================================================
+
+====================
+==System Directory==
+====================
+This directory contains 6 sub directories
+
+- app
+- config
+- layouts
+- modules
+- plugins
+- vendor
+
+*******************
+*The app Directory*
+*******************
+The app directory contains the core of indigo.
+The only time files in this directory have to be changed is when we are
+adding new parsers (Markup, textile, etc) or when we are adding new
+global function Wrappers.
+
+**********************
+*The config Directory*
+**********************
+Default Config files for indigo is stored in this folder.
+Config files are loaded in accending order (a-z).
+To create new config files simply drop a .ini file into this directory
+and it will be loaded.
+Config files value can be overriden by manifest.ini.
+
+***********************
+*The layouts Directory*
+***********************
+This is where the Main layouts for indigo is stored files here can be
+overriden by the layouts file in the base directory.
+
+the partials subfolder stores the layout partials for methods.
+They are stored in folders named after its respected classes.
+e.g.:
+class Foo extends modules {
+	function bar($params){
+		return $this->_getHtmlTemplate('foobar.phtml',$params);
+	}
+}
+
+This will return /layouts/partials/Foo/foobar.phtml
+
+
+*******************
+*The modules Directory*
+*******************
+This folder contains:
+* Class files
+* Api
+* Preparser
+
+-Class Files
+The class files are always named after the class name (with Capitalized First character)
+Class files must extend the modules class or it will not load at all
+
+loading a function in the content is simply using a tag: {{ <class_name>_<method_name> }}
+
+-Api
+Api is where Api call functions should be stored..
+Files should be named after the Class name just without the preceding "Api_".
+e.g.:
+class Api_Test extends Api
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
+}
+The file name should be: /modules/Api/Test.php
+
+-Preparser
+Files in this folder will be loaded before parsing data (loaded in accending order).
+Files should be named after the Class name just without the preceding "Preparser_".
+e.g.:
+class Preparser_Foo extends modules {
+    function __construct()
+    {
+        parent::__construct();
+    }
+
+    function init() {
+		return array('endOfPage' => '');
+	}
+}
+
+The file name should be: /modules/preparser/Foo.php
+
+
+**************************
+*The plugins Directory*
+**************************
+This folder is exactly same as the modules folder, the only difference is
+that site specific classes, api and preparsers are stored here. This is
+just for simplifying the version control.
+
+Warning, Do not create files that have the same name as files in modules,
+you can extend them but not override them.
+e.g.:
+/modules/Test.php
+/plugins/Test.php
+will return UNEXPECTED RESULT!
+
+**********************
+*The vendor Directory*
+**********************
+This is where thirdparty Codes/modulesrary are stored.
