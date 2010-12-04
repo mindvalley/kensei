@@ -1,0 +1,16 @@
+<?php if ($showHeader): ?>
+                <div id="header">
+                    <?php if ($showExtras): ?>
+                        <div id="extras">
+                            <?=$extras;?>
+                        </div>
+                    <?php endif ?>
+                    <h1><a href="/"><span><?=$name;?></span></a></h1>
+                    <?php if ($showNavigation): ?>
+                        <?=$menu; ?>
+                    <?php endif; ?>
+                    <?php if (isset($headerExtras)): ?>
+                        <?=$headerExtras;?>
+                    <?php endif; ?>
+                </div>
+<?php endif ?>

@@ -1,0 +1,19 @@
+<div id="<?=$params['id']?>" class="<?=$params['class']?>" >
+	<h1><?=$params['from']?></h1>
+	<ul>
+		<?php $i=0;?>
+		<?php foreach ($feed as $entry): ?>
+			<li>
+				<h2><?=$entry->title();?></h2>
+				<?php $content = $entry->summary();if (empty($content)){$content = $entry->description();}if (empty($content)){$content = $entry->content();}?>
+				<?php if (!$params['hide_content']): ?>
+					<p><?=strip_tags($content);?></p>
+				<?php endif ?>
+				<?php if (is_string($link = $entry->link()) ): ?>
+					<p class="read-more"><a href="<?=$link;?>" target="_blank">Read more &raquo;</a></p>
+				<?php endif ?>
+				<?php $i++; if($i>=$params['max']) break; ?>
+			</li>
+		<?php endforeach ?>
+	</ul>
+</div>
