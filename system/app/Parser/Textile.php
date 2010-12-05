@@ -15,16 +15,15 @@ Affero GNU General Public License for more details.
 You should have received a copy of the Affero GNU General Public License
 along with Tensai.  If not, see <http://www.gnu.org/licenses/>.
 ***/
-?>
 
-<?php
+
 class Parser_Textile extends Parser
 {
     private $_textileParser;
     function __construct($fileLocation,$path)
     {
         parent::__construct($fileLocation,$path);
-        
+
         if (!Zend_Registry::isRegistered('textile')){
             $this->_textileParser = new Textile();
             Zend_Registry::set('textile', $this->_textileParser);

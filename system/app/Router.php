@@ -15,9 +15,8 @@ Affero GNU General Public License for more details.
 You should have received a copy of the Affero GNU General Public License
 along with Tensai.  If not, see <http://www.gnu.org/licenses/>.
 ***/
-?>
 
-<?php
+
 class Router
 {
     var $requestPath;
@@ -34,11 +33,11 @@ class Router
         $config = Zend_Registry::get('config');
 
         if($config->site->base_path != '/'){
-            $this->requestPath = trim(str_replace(trim($config->site->base_path,'/'),'',$this->requestPath),'/');   
+            $this->requestPath = trim(str_replace(trim($config->site->base_path,'/'),'',$this->requestPath),'/');
         }
         $this->setRealPath();
     }
-    
+
     private function _getPageAlias($path)
     {
         $config = Zend_Registry::get('config');
@@ -56,7 +55,7 @@ class Router
         }
         return $path;
     }
-    
+
     /**
     *  Sets the real path.
     * if $path not specified, will use the path specified in the constructor
@@ -76,7 +75,7 @@ class Router
             $this->realPath = CONTENT_DIR . $path.'/index'.$config->application->contentFile->extension;
         }
     }
-    
+
     /**
     * crawl trough all logical path and return a logical paths array.
     * @var string
@@ -108,8 +107,8 @@ class Router
             }
         }
         return $dirStructure;
-    }    
-    
+    }
+
     /**
     * treats the current path as a post/request request
     */
@@ -136,16 +135,16 @@ class Router
             if (strtolower($functionName) == strtolower($method)){
                 $functionName = $method;
                 break;
-            }            
+            }
         }
 
-        
+
         $classObject = new $className();
 
         if (method_exists($classObject,$functionName) == false){
             return $this->getPreset('404');
         }
-        
+
         if (!empty($param)){
             if (strstr($param,'/') !==false){
                 $params = explode('/',$param);

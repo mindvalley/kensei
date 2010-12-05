@@ -15,9 +15,8 @@ Affero GNU General Public License for more details.
 You should have received a copy of the Affero GNU General Public License
 along with Tensai.  If not, see <http://www.gnu.org/licenses/>.
 ***/
-?>
 
-<?php
+
 class Parser_Html extends Parser
 {
     function __construct($fileLocation,$path)
@@ -30,6 +29,6 @@ class Parser_Html extends Parser
     */
     function parseText($stringPieces)
     {
-        return $stringPieces; 
+        return $stringPieces;
     }
 }

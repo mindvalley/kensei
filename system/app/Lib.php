@@ -15,9 +15,8 @@ Affero GNU General Public License for more details.
 You should have received a copy of the Affero GNU General Public License
 along with Tensai.  If not, see <http://www.gnu.org/licenses/>.
 ***/
-?>
 
-<?php
+
 /**
 * Lib should never be called directly.
 * This class should be inherited by a child class
@@ -59,7 +58,7 @@ abstract class Lib {
         }
         return '<div class="rp_warning"> <h1>ERROR TAG {{ '.$name.' }} DOES NOT EXIST!</h1></div>';
     }
-    
+
     /**
      * Creates run strings with php codes in it. and return a string
      */
@@ -146,7 +145,7 @@ abstract class Lib {
         }else{
             $textile = Zend_Registry::get('textile');
         }
-        
+
         if ($config->textile->tagsCaching){
             $identifier = hash('md4',$string);
             $cacher = Wrapper::getCache($identifier,2592000, BASE_DIR.'/cache/');
@@ -156,12 +155,12 @@ abstract class Lib {
                 $contentLength = strlen($content);
                 if ($contentLength >= 3 && substr_compare($content,'<p>',0,3,false) == 0){
                     $cleanedHtml = substr($content,3);
-                    
+
                     $contentLength = strlen($cleanedHtml);
                     if ($contentLength >= 4 && substr_compare($cleanedHtml,'</p>',$contentLength-4,4,false) == 0){
                         $cleanedHtml = substr($cleanedHtml,0,$contentLength-4);
                     }
-                }            
+                }
                 Wrapper::setCache($identifier,$cleanedHtml,2592000, BASE_DIR.'/cache/');
                 return $cleanedHtml;
             }else{
@@ -173,7 +172,7 @@ abstract class Lib {
             $contentLength = strlen($content);
             if ($contentLength >= 3 && substr_compare($content,'<p>',0,3,false) == 0){
                 $cleanedHtml = substr($content,3);
-                
+
                 $contentLength = strlen($cleanedHtml);
                 if ($contentLength >= 4 && substr_compare($cleanedHtml,'</p>',$contentLength-4,4,false) == 0){
                     $cleanedHtml = substr($cleanedHtml,0,$contentLength-4);
@@ -181,8 +180,8 @@ abstract class Lib {
             }
             return $cleanedHtml;
         }
-        
-        
+
+
     }
 
     /**
@@ -231,7 +230,7 @@ abstract class Lib {
                     $$key = $data;
             }
         }
-        
+
         ob_start();
         include($htmlFile);
         $data = ob_get_contents();
@@ -244,13 +243,13 @@ abstract class Lib {
         $parser = Zend_Registry::get('parser', $parser );
         $parser->injectScope(array($scope=>$data),$forceOverride);
     }
-    
+
     protected static function _getScope($scope)
     {
         $parser = Zend_Registry::get('parser', $parser );
         return $parser->getScope($scope);
     }
-    
+
     public abstract function scopeOf($functionName);
 /* {
         switch ($functionName){
@@ -258,5 +257,5 @@ abstract class Lib {
                 return '';
         }
     }*/
-    
+
 }
