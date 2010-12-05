@@ -22,8 +22,9 @@ set_include_path( VENDOR_DIR . PATH_SEPARATOR . get_include_path());
 set_include_path( LAYOUTS_DIR . PATH_SEPARATOR . get_include_path());
 
 // Core Application files.
-require_once "Zend/Loader.php";
-Zend_Loader::registerAutoload();
+require_once 'Zend/Loader/Autoloader.php';
+$loader = Zend_Loader_Autoloader::getInstance();
+$loader->setFallbackAutoloader(true);
 
 $generator = new Generator();
 
