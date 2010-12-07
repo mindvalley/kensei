@@ -1,34 +1,34 @@
-h1. About TensaiCMS
+h1. About KenseiCMS
 
 No databases.
 No hassles.
 No shit.
 That's genius!
-No. That's Tensai.
+No. That's Kensei.
 
 h2. History
 
-Tensai is a file-based content management system written in PHP using the Zend framework. It was extracted by isieo and kaliwanagan from their work in Indigo, used by "Mindvalley LC,":http://www.mindvalley.com an Internet Marketing company specializing in the personal development genre.
+Kensei is a file-based content management system written in PHP using the Zend framework. It was extracted by isieo and kaliwanagan from their work in Indigo, used by "Mindvalley LC,":http://www.mindvalley.com an Internet Marketing company specializing in the personal development genre.
 
 h2. Features
 
-* No database: Tensai does not need a database to run; it only needs a web server and PHP. Without any extra database server to maintain, deployment is quick and hassle-free. A deployment at its simplest can consist of simply copying over the entire program tree.
-* Model-View-Controller architecture: Tensai was designed to be easily maintanable, and this attribute was very influential in how Tensai was structured. A web page's layout resides in partials that content writers need not worry about.
+* No database: Kensei does not need a database to run; it only needs a web server and PHP. Without any extra database server to maintain, deployment is quick and hassle-free. A deployment at its simplest can consist of simply copying over the entire program tree.
+* Model-View-Controller architecture: Kensei was designed to be easily maintanable, and this attribute was very influential in how Kensei was structured. A web page's layout resides in partials that content writers need not worry about.
 * Extensibility: Additional functionality can easily be added by content writers in the form of tags (which are able to use their own partials as well). For example, a video player that gracefully degrades from HTML5 to Flash to a static image can easily be embedded in a page just by inserting the media_player tag.
 
 h2. License
 
-This file is part of Tensai.
+This file is part of Kensei.
 
-Tensai is free software: you can redistribute it and/or modify
+Kensei is free software: you can redistribute it and/or modify
 it under the terms of the Affero GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Tensai is distributed in the hope that it will be useful,
+Kensei is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 Affero GNU General Public License for more details.
 
 You should have received a copy of the Affero GNU General Public License
-along with Tensai.  If not, see <http://www.gnu.org/licenses/>.
+along with Kensei.  If not, see <http://www.gnu.org/licenses/>.
